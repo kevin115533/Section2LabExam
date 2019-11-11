@@ -1,0 +1,9 @@
+C:\Users\Kevin Tran\source\repos\Section2LabExam\Section2LabExam\bin\Debug\Section2LabExam.exe.config
+C:\Users\Kevin Tran\source\repos\Section2LabExam\Section2LabExam\bin\Debug\Section2LabExam.exe
+C:\Users\Kevin Tran\source\repos\Section2LabExam\Section2LabExam\bin\Debug\Section2LabExam.pdb
+C:\Users\Kevin Tran\source\repos\Section2LabExam\Section2LabExam\obj\Debug\Section2LabExam.csprojAssemblyReference.cache
+C:\Users\Kevin Tran\source\repos\Section2LabExam\Section2LabExam\obj\Debug\Section2LabExam.frmExam2.resources
+C:\Users\Kevin Tran\source\repos\Section2LabExam\Section2LabExam\obj\Debug\Section2LabExam.Properties.Resources.resources
+C:\Users\Kevin Tran\source\repos\Section2LabExam\Section2LabExam\obj\Debug\Section2LabExam.csproj.GenerateResource.cache
+C:\Users\Kevin Tran\source\repos\Section2LabExam\Section2LabExam\obj\Debug\Section2LabExam.exe
+C:\Users\Kevin Tran\source\repos\Section2LabExam\Section2LabExam\obj\Debug\Section2LabExam.pdb

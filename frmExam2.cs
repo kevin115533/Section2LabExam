@@ -16,5 +16,28 @@ namespace Section2LabExam
         {
             InitializeComponent();
         }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            lblMessage.Text = "This message box has been cleared";
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            DateTime currentTime = DateTime.Now;
+            DateTime closeTime = DateTime.Now.AddSeconds(4);
+            
+
+            while(currentTime < closeTime)
+            {
+                lblMessage.Text = "Thank you for using this program, it will now close shortly";
+                lblMessage.Update();
+                currentTime = DateTime.Now;
+                if (currentTime > closeTime)
+                {
+                    this.Close();
+                }
+            }
+        }
     }
 }
