@@ -164,6 +164,7 @@
             this.btnDoFibonacci.TabIndex = 5;
             this.btnDoFibonacci.Text = "Do";
             this.btnDoFibonacci.UseVisualStyleBackColor = false;
+            this.btnDoFibonacci.Click += new System.EventHandler(this.btnDoFibonacci_Click);
             // 
             // lblFibonacci
             // 

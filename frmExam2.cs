@@ -133,5 +133,40 @@ namespace Section2LabExam
             factString = "The answer of " + Convert.ToString(op1) + "!" + " is " + Convert.ToString(result);
             return factString;
         }
+
+        private void btnDoFibonacci_Click(object sender, EventArgs e)
+        {
+            lblMessage.Text = fibonacci(int.Parse(txtOp1.Text));
+        }
+
+        private string fibonacci(int op1)
+        {
+            string fibString = "";
+            int result = 1;
+            int holder1 = 0;
+            int holder2 = 0;
+            if(op1 == 0)
+            {
+                result = 0;
+                fibString = "Fibonacci(" + Convert.ToString(result) + ") = 0";
+            }
+            if(op1 == 1)
+            {
+                result = 1;
+                fibString = "Fibonacci(" + Convert.ToString(result) + ") = 1" ;
+            }
+            else
+            {
+                for(int i = 2; i <= op1; i++)
+                {
+                    holder2 = holder1 + result;
+                    holder1 = result;
+                    result = holder2;
+                }
+                fibString = "Fibonacci(" + Convert.ToString(op1) + ") = " + "Fibonacci(" + Convert.ToString(op1 - 1) + ") + " + "Fibonacci(" + Convert.ToString(op1 - 2) + ") = "  + Convert.ToString(result);
+            }
+
+            return fibString;
+        }
     }
 }
