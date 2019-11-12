@@ -30,8 +30,8 @@
         {
             this.lblOp1 = new System.Windows.Forms.Label();
             this.lblOp2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtOp1 = new System.Windows.Forms.TextBox();
+            this.txtOp2 = new System.Windows.Forms.TextBox();
             this.btnDoModulus = new System.Windows.Forms.Button();
             this.lblFactorial = new System.Windows.Forms.Label();
             this.btnShowFibonacci = new System.Windows.Forms.Button();
@@ -66,21 +66,23 @@
             this.lblOp2.TabIndex = 12;
             this.lblOp2.Text = "Operand 2";
             // 
-            // textBox1
+            // txtOp1
             // 
-            this.textBox1.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(152, 6);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(274, 29);
-            this.textBox1.TabIndex = 13;
+            this.txtOp1.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtOp1.Location = new System.Drawing.Point(152, 6);
+            this.txtOp1.Name = "txtOp1";
+            this.txtOp1.Size = new System.Drawing.Size(274, 29);
+            this.txtOp1.TabIndex = 13;
+            this.txtOp1.TabStop = false;
             // 
-            // textBox2
+            // txtOp2
             // 
-            this.textBox2.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(152, 43);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(274, 29);
-            this.textBox2.TabIndex = 14;
+            this.txtOp2.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtOp2.Location = new System.Drawing.Point(152, 43);
+            this.txtOp2.Name = "txtOp2";
+            this.txtOp2.Size = new System.Drawing.Size(274, 29);
+            this.txtOp2.TabIndex = 14;
+            this.txtOp2.TabStop = false;
             // 
             // btnDoModulus
             // 
@@ -92,6 +94,7 @@
             this.btnDoModulus.TabIndex = 3;
             this.btnDoModulus.Text = "Do";
             this.btnDoModulus.UseVisualStyleBackColor = false;
+            this.btnDoModulus.Click += new System.EventHandler(this.btnDoModulus_Click);
             // 
             // lblFactorial
             // 
@@ -114,6 +117,7 @@
             this.btnShowFibonacci.TabIndex = 2;
             this.btnShowFibonacci.Text = "Show";
             this.btnShowFibonacci.UseVisualStyleBackColor = false;
+            this.btnShowFibonacci.Click += new System.EventHandler(this.btnShowFibonacci_Click);
             // 
             // btnDoFactorial
             // 
@@ -147,6 +151,7 @@
             this.btnShowModulus.TabIndex = 0;
             this.btnShowModulus.Text = "Show";
             this.btnShowModulus.UseVisualStyleBackColor = false;
+            this.btnShowModulus.Click += new System.EventHandler(this.btnShowModulus_Click);
             // 
             // btnDoFibonacci
             // 
@@ -180,6 +185,7 @@
             this.btnShowFactorial.TabIndex = 1;
             this.btnShowFactorial.Text = "Show";
             this.btnShowFactorial.UseVisualStyleBackColor = false;
+            this.btnShowFactorial.Click += new System.EventHandler(this.btnShowFactorial_Click);
             // 
             // btnClear
             // 
@@ -188,7 +194,7 @@
             this.btnClear.Location = new System.Drawing.Point(12, 260);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(204, 48);
-            this.btnClear.TabIndex = 9;
+            this.btnClear.TabIndex = 6;
             this.btnClear.Text = "&Clear";
             this.btnClear.UseVisualStyleBackColor = false;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
@@ -200,7 +206,7 @@
             this.btnExit.Location = new System.Drawing.Point(222, 260);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(204, 48);
-            this.btnExit.TabIndex = 10;
+            this.btnExit.TabIndex = 7;
             this.btnExit.Text = "&Exit";
             this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
@@ -221,8 +227,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(438, 495);
             this.Controls.Add(this.lblMessage);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtOp2);
+            this.Controls.Add(this.txtOp1);
             this.Controls.Add(this.lblOp2);
             this.Controls.Add(this.lblOp1);
             this.Controls.Add(this.btnExit);
@@ -236,8 +242,11 @@
             this.Controls.Add(this.btnShowFibonacci);
             this.Controls.Add(this.btnShowFactorial);
             this.Controls.Add(this.btnShowModulus);
+            this.KeyPreview = true;
             this.Name = "frmExam2";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Kevin Tran Math Functions";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmExam2_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -246,8 +255,8 @@
         #endregion
         private System.Windows.Forms.Label lblOp1;
         private System.Windows.Forms.Label lblOp2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtOp1;
+        private System.Windows.Forms.TextBox txtOp2;
         private System.Windows.Forms.Button btnDoModulus;
         private System.Windows.Forms.Label lblFactorial;
         private System.Windows.Forms.Button btnShowFibonacci;
