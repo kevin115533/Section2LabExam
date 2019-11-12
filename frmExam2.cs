@@ -98,7 +98,7 @@ namespace Section2LabExam
 
         private void btnDoModulus_Click(object sender, EventArgs e)
         {
-            lblMessage.Text = modulus(15, 2);
+            lblMessage.Text = modulus(int.Parse(txtOp1.Text), int.Parse(txtOp2.Text));
         }
 
         private string modulus(int op1, int op2)
@@ -109,8 +109,8 @@ namespace Section2LabExam
             int remainder = 0;
             while(op1 > op2)
             {
-                remainder = op1 - op2;
                 op1 = op1 - op2;
+                remainder = op1;
                 counter++;
             }
             modulusString = Convert.ToString(originalOp1) + " divided by " + Convert.ToString(op2) + " is " + Convert.ToString(counter) + " with a remainder of " + Convert.ToString(remainder);
