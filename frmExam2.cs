@@ -7,6 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+/* Kevin Tran
+ * ITD 1253
+ * Fall 2019
+ */
 
 namespace Section2LabExam
 {
@@ -75,19 +79,73 @@ namespace Section2LabExam
             lblMessage.Text = "Enter a value in text box 1 to find its Fibonacci value";
         }
 
-        private bool validateData(TextBox textbox)
+        public bool validateData(TextBox textBox)
         {
             return
-                isDecimal(textbox);
-
+                isBlank(textBox) &&
+                isDecimal(textBox) &&
+                isInt32(textBox);
         }
 
-        private bool isDecimal(TextBox userString)
+        public bool validateData(TextBox textBox, int max)
         {
-            decimal number = 0;
-            if (decimal.TryParse(userString.Text, out number))
+            return
+                isBlank(textBox) &&
+                isDecimal(textBox) &&
+                isInt32(textBox)&&
+                inRange(textBox, max);
+        }
+
+        private bool isDecimal(TextBox textbox)
+        {
+            string userString = textbox.Text;
+            char[] split = userString.ToCharArray();
+
+            for (int i = 0; i < split.Length; i++)
             {
-                lblMessage.Text = "Decimals are not allow in the entries";
+                if(split[i] == '.')
+                {
+                    lblMessage.Text = "Decimal values are not allowed";
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        public bool isBlank(TextBox textBox)
+        {
+            if (textBox.Text == "")
+            {
+                lblMessage.Text = "Number entry box is empty, please input a value";
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        public bool isInt32(TextBox textBox)
+        {
+            string s = textBox.Text;
+            int number = 0;
+            if (int.TryParse(s, out number))
+            {
+                return true;
+            }
+            else
+            {
+                lblMessage.Text = "Please enter a numeric value";
+                return false;
+            }
+        }
+
+        public bool inRange(TextBox textBox, int max)
+        {
+            int number = Convert.ToInt32(textBox.Text);
+            if (number > max)
+            {
+                lblMessage.Text = "A value greater than " + Convert.ToString(max) + " is too high to calculate";
                 return false;
             }
             else
@@ -98,7 +156,16 @@ namespace Section2LabExam
 
         private void btnDoModulus_Click(object sender, EventArgs e)
         {
-            lblMessage.Text = modulus(int.Parse(txtOp1.Text), int.Parse(txtOp2.Text));
+            try
+            {   if (validateData(txtOp1))
+                {
+                    lblMessage.Text = modulus(int.Parse(txtOp1.Text), int.Parse(txtOp2.Text));
+                }
+            }
+            catch(Exception ex)
+            {
+                lblMessage.Text = ex.Message + ex.GetType().ToString();
+            }
         }
 
         private string modulus(int op1, int op2)
@@ -119,7 +186,17 @@ namespace Section2LabExam
 
         private void btnDoFactorial_Click(object sender, EventArgs e)
         {
-            lblMessage.Text = factorial(int.Parse(txtOp1.Text));
+            try
+            {
+                if(validateData(txtOp1, 20))
+                {
+                    lblMessage.Text = factorial(int.Parse(txtOp1.Text));
+                }
+            }
+            catch (Exception ex)
+            {
+                lblMessage.Text = ex.Message + ex.GetType().ToString();
+            }
         }
 
         private string factorial(int op1)
@@ -136,7 +213,17 @@ namespace Section2LabExam
 
         private void btnDoFibonacci_Click(object sender, EventArgs e)
         {
-            lblMessage.Text = fibonacci(int.Parse(txtOp1.Text));
+            try
+            {
+                if (validateData(txtOp1, 128))
+                {
+                    lblMessage.Text = fibonacci(int.Parse(txtOp1.Text));
+                }
+            }
+            catch (Exception ex)
+            {
+                lblMessage.Text = ex.Message + ex.GetType().ToString();
+            }
         }
 
         private string fibonacci(int op1)
