@@ -116,5 +116,22 @@ namespace Section2LabExam
             modulusString = Convert.ToString(originalOp1) + " divided by " + Convert.ToString(op2) + " is " + Convert.ToString(counter) + " with a remainder of " + Convert.ToString(remainder);
             return modulusString;
         }
+
+        private void btnDoFactorial_Click(object sender, EventArgs e)
+        {
+            lblMessage.Text = factorial(int.Parse(txtOp1.Text));
+        }
+
+        private string factorial(int op1)
+        {
+            string factString = "";
+            int result = 1;
+            for(int i = 1; i <= op1; i++)
+            {
+                result = result * i;
+            }
+            factString = "The answer of " + Convert.ToString(op1) + "!" + " is " + Convert.ToString(result);
+            return factString;
+        }
     }
 }

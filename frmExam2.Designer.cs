@@ -129,6 +129,7 @@
             this.btnDoFactorial.TabIndex = 4;
             this.btnDoFactorial.Text = "Do";
             this.btnDoFactorial.UseVisualStyleBackColor = false;
+            this.btnDoFactorial.Click += new System.EventHandler(this.btnDoFactorial_Click);
             // 
             // lblModulus
             // 
